@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!--Pour faire un commentaire-->
+
+<html>
+    <head>
+        <!--tête-->
+        <link rel="stylesheet" href="style.css"/>
+        <meta charset="utf-8">
+        <title>
+            >_Baptphyssky
+        </title>
+    </head>
+
+    <body class="bbg">
+        <!--le corps-->
+        <h1>Bonjour internaute !</h1>
+        <hr style="color: rgb(255, 255, 255);">
+        <div>
+            <ul class="menu">
+                <li>
+                    <a href="main.html">Accueil</a>
+                </li>
+                <li>
+                    <a href="blog.html">Articles</a>
+                </li>
+                <li>
+                    <a href="gnulinux.html">GNU/Linux</a>
+                </li>
+                <li>
+                    <a href="latex.html">LaTeX</a>
+                </li>
+                <li>
+                    <a href="python.html">Python</a>
+                </li>
+                <li>
+                    <a href="https://github.com/Bapt-Physsky" target="_blank">GitHub</a>
+                </li>
+                <li>
+                    <a href="other.html">Autres</a>
+                </li>
+                <li>
+                    <a href="omsi2.html">OMSI 2</a>
+                </li>
+                <li>
+                    <a href="log.html">Log</a>
+                </li>
+            </ul>
+        </div>
+
+
+        <hr style="color: white ;">
+        <p class="date">
+            Nous sommes le
+        </p>
+        <p id="current_date" class="date">
+            <script>
+                date = new Date();
+                year = date.getFullYear();
+                month = date.getMonth() + 1;
+                day = date.getDate();
+                document.getElementById("current_date").innerHTML = day + "." + month + "." + year ;
+            </script>
+        </p>
+        <p>
+            Les dernières nouvelles :
+            <marquee behavior="left">
+                <!--
+				la balise marquee permet de faire défiler un texte, une
+				image... . Behavior permet de préciser son comportement,
+				ici, la commande "left" permet de faire défiler le texte
+				de la droite vers la gauche.
+                -->
+                C'est en développement :)
+            </marquee>
+        </p>
+        <hr style="color: white ;">
+
+
+        <hr style="color: white;">
+        <footer>
+            <div>
+                <p>
+                    Codé par Bapt_Physsky depuis le 26 décembre 2022.
+                </p>
+                <p>
+                    Police "Cordata_PPC-400" & "IBM_VGA_9x14" par <a href="http://int10h.org/oldschool-pc-fonts/">The Ultimate Oldschool PC Font</a> distribuée sous la licence Creative Commons Attribution - Share Alike 4.0 International License (CC-BY-SA 4.0) http://creativecommons.org/licenses/by-sa/4.0/
+                </p>
+        </footer>
+
+    </body>
+
+</html>
