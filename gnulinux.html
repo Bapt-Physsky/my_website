@@ -11,7 +11,28 @@
     </head>
     <body class="bbg">
         <!--le corps-->
-        <h1>GNU / Linux</h1>
+        <div class="teletext">
+            <div id="page" class="left" style="color: limegreen;">GNULINUX</div> <div id="ref" class="center">BAPT_PHYSSKY</div> <div id="current_date" class="right" style="color: gold;"></div><br>
+             <script type="text/javascript">
+                 function affichZero(nombre) {
+                     return nombre < 10 ? '0' + nombre : nombre;
+                 }
+                 function current_date(){
+                     date = new Date();
+                     year = date.getFullYear();
+                     month = affichZero(date.getMonth() +1);
+                     day = affichZero(date.getDate());
+                     heure = affichZero(date.getHours());
+                     minutes = affichZero(date.getMinutes());
+                     secondes = affichZero(date.getSeconds());
+                     document.getElementById("current_date").innerHTML = day + " " + month + " " + year + " " + heure + ":" + minutes + "/" + secondes ;
+                 }
+                 window.onload = function() {
+                 setInterval("current_date()",100);
+                 };
+             </script>
+        </div>
+        <h1><center>GNU / Linux</center></h1>
         <hr style="color: rgb(255, 255, 255);">
         <div>
             <ul class="menu">

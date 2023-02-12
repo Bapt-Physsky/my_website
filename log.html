@@ -10,8 +10,29 @@
         </title>
     </head>
     <body class="bbg">
+        <div class="teletext">
+            <div id="page" class="left" style="color: limegreen;">LOG</div> <div id="ref" class="center">BAPT_PHYSSKY</div> <div id="current_date" class="right" style="color: gold;"></div><br>
+             <script type="text/javascript">
+                 function affichZero(nombre) {
+                     return nombre < 10 ? '0' + nombre : nombre;
+                 }
+                 function current_date(){
+                     date = new Date();
+                     year = date.getFullYear();
+                     month = affichZero(date.getMonth() +1);
+                     day = affichZero(date.getDate());
+                     heure = affichZero(date.getHours());
+                     minutes = affichZero(date.getMinutes());
+                     secondes = affichZero(date.getSeconds());
+                     document.getElementById("current_date").innerHTML = day + " " + month + " " + year + " " + heure + ":" + minutes + "/" + secondes ;
+                 }
+                 window.onload = function() {
+                 setInterval("current_date()",100);
+                 };
+             </script>
+        </div>
         <h1>
-            Journal MàJ du site / Website Update log
+            <center>Journal MàJ du site / Website Update log</center>
         </h1>
         <hr style="color: white;">
         <div>
@@ -51,6 +72,12 @@
                 Mise à jours / Update (yyyy.mm.dd) :
             </h2>
             <ul class="updatelog">
+                <li>
+                    2023.02.12 >_ Ajout de contenu dans la page LaTeX ; CSS : création classe code pour afficahge de morceau de code.
+                </li>
+                <li>
+                    2023.02.11 >_ Ajout de contenu dans la page LaTeX, mise en place de l'entête "teletext".
+                </li>
                 <li>
                     2023.01.17 >_ Ajout de table de matières dans les pages Python et LaTeX.
                 </li>

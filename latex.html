@@ -11,7 +11,29 @@
     </head>
     <body class="bbg">
         <!--le corps-->
-        <h1>LaTeX</h1>
+        <div class="teletext">
+            <div id="page" class="left" style="color: limegreen;">LATEX</div> <div id="ref" class="center">BAPT_PHYSSKY</div> <div id="current_date" class="right" style="color: gold;"></div><br>
+             <script type="text/javascript">
+                 function affichZero(nombre) {
+                     return nombre < 10 ? '0' + nombre : nombre;
+                 }
+                 function current_date(){
+                     date = new Date();
+                     year = date.getFullYear();
+                     month = affichZero(date.getMonth() +1);
+                     day = affichZero(date.getDate());
+                     heure = affichZero(date.getHours());
+                     minutes = affichZero(date.getMinutes());
+                     secondes = affichZero(date.getSeconds());
+                     document.getElementById("current_date").innerHTML = day + " " + month + " " + year + " " + heure + ":" + minutes + "/" + secondes ;
+                 }
+                 window.onload = function() {
+                 setInterval("current_date()",100);
+                 };
+             </script>
+        </div>
+        <h1><center>LaTeX</center></h1>
+        
         <hr style="color: rgb(255, 255, 255);">
         <div>
             <ul class="menu">
@@ -53,37 +75,63 @@
         <h3>Table des matières : </h3>
             <ol type="1">
                 <li>Introduction</li>
+                <ol type="A">
+                    <li>Introduction</li>
+                    <li>Ce cours n'est pas un cours</li>
+                </ol><br>
                 <li>MikTeX</li>
                 <ol type="A">
                     <li>C'est quoi MikTex ?</li>
                     <li>Installation</li>
-                </ol>
+                </ol><br>
                 <li>TexMaker</li>
                 <ol type="A">
                     <li>Pourquoi Texmaker ?</li>
                     <li>Installation</li>
+                    <ol type="1">
+                        <li>Installation sous GNU/Linux</li>
+                        <li>Installer sur Windows</li>
+                    </ol>
                     <li>Premiers pas</li>
-                </ol>
+                </ol><br>
                 <li>Quelques rudiments de codes</li>
                 <ol type="A">
+                    <li>Hello World !</li>
                     <li>Avant la rédaction</li>
                     <li>Le corps du document</li>
-                </ol>
+                </ol><br>
                 <li>Les bases de la mise en page sur LaTeX</li>
                 <ol type="A">
                     <li>Les classes de documents</li>
+                    <ol type="1">
+                        <li>Classe Book (Livre) & Report (rapport)</li>
+                        <li>Classe Article</li>
+                        <li>Classe Beamer</li>
+                        <li>Classe Lettre</li>
+                        <li>Classe Memoir (mémoire)</li>
+                        <li>Classe Slides (diaporama)</li>
+                    </ol>
                     <li>Faire un titre</li>
                     <li>Une table des matières pour s'y retrouver</li>
-                </ol>
-                <li>Les Mathématiques</li>
+                </ol><br>
+                <li>Les Mathématiques et les Sciences dures</li>
                 <ol type="A">
-                    <li>La mise en page</li>
                     <li>Les opérations basiques</li>
-                    <li>Les opérations complexes</li>
+                    <ol type="1">
+                        <li>L'addition, s'il vous plaît !</li>
+                        <li>Sans la note</li>
+                        <li>Des chiffres, mais aussi des lettres</li>
+                        <li>La fraction</li>
+                        <li>Indice et exposant</li>
+                        <li>La racine carré et plus</li>
+                    </ol>
                     <li>"Align*" ou l'art des démonstrations</li>
+                    <li>Les opérations complexes</li>
                     <li>Faire de la physique</li>
                     <li>Faire de la chimie</li>
-                </ol>
+                    <li>Dessiner des circuits électroniques</li>
+                    <li>Insérer du code dans votre papier</li>
+                </ol><br>
                 <li>Des images</li>
                 <li>Des tableaux</li>
                 <ol type="A">
@@ -96,18 +144,278 @@
         <hr style="color: white;">
 
         <h3>1. Introduction</h3>
-        <p>LaTeX, à ne pas confondre avec latex (la matière), est un langage se basant sur une collection de macrocommandes facilitant l'usage de TeX (créé par Donald Knuth). Développé par Leslie Lamport au début des années 1980.</p>
-        <p>Il permet la rédaction de documents où la mise en page est réalisée automatiquement ---lorsque l'on compile son code--- en respectant les normes et usages. L'autre force de LaTeX est son mode mathématique, qui offre une puissance dans la rédaction d'équation et de formules complexes.</p>
-        <p>C'est un traitement de texte dit "WYSIWYM" (What You See Is What You Mean --- Ce que tu vois est ce que tu veux), entrant en opposition aux traitements de textes grands publics tel que Microsoft Office et Libre Office.</p>
+        <h4>1.A. Introduction</h4>
+        <p>
+            Utiliser LaTeX pour la rédaction de document, notamment de rapport, de cours (voir notes de cours) ou bien encore produire un diaporama n'est pas si effrayant que ça.
+            Cela demande juste de l'entraînement et de l'apprentissage, comme pour tout, vous me le ferais remarquer, et je vous répondrais : "Perspicace n'est-ce pas ?".
+        </p>
+        <p>
+            Quand on est étudiant ou étudiante en sciences durs (Maths, Physique, Chimie, Informatique, Biologie, Géologie...) à l'Université ou dans une grande école, on se rends compte à quel point, surtout quand on écrit un rapport avec des pages et des pages d'équations et/ou de tableaux et/ou d'images, que les logiciels tels que "Word" ou "Libre Office", bien que facile d'utilisation et, quelques part, intuitif pour l'utilisateur lambda, s'avère quelque peut frustrant.
+            Surtout quand une image ne se trouve plus à l'endroit où elle devrait être et modifie toute la mise en page, ou bien un calcul qui s'allonge tellement que la zone d'équation ne tient pas sur une seule page.
+        </p>
+        <p>
+            Je ne dis par que LaTeX doit être le seul et unique éditeur de document que TOUT LE MONDE DOIT UTILISER mais que dans le cas d'une personne impliquée ou <i>nerd</i>, que se soit scolairement ou professionnellement, dans le milieu scientifique principalement, et bien LaTeX peut vous enlever une certaine épine du pied !
+        </p>
+        <h4>1.B. Ce cours n'est pas un cours</h4>
+        <p>
+            Je n'ai pas la prétention de faire un cours magistral ou un enseignement universitaire sur l'utilisation de LaTeX dans le cadre de vos études, je ne suis qu'un étudiant en physique qui a envie de partager, en français, tout ce que j'ai appris mais également mon expérience dans le monde merveilleux des rapports et productions écrites scientifiques.
+        </p>
+        <p>
+            D'ailleurs, le fait que LaTeX soit un langage de programmation, nous y reviendrons plus loin, fait qu'il offre une immense communauté sur internet, dont les forums en HTML sans CSS les plus obscurs ou une vidéo Youtube seront dans l'ombre d'un doute vos meilleurs amis !
+            Mais, je peux garantir que cette page sera sourcée et travaillée de sorte qu'elle soit fiable. D'ailleurs, j'en profite pour glisser maintenant ma source principale, qui a été quasiment ma porte d'entrée dans le code LaTeX, ce site, en anglais : <a href="https://latex-tutorial.com/tutorials/">LaTeX-tutorial</a>
+            Avant de plonger dans le vif du sujet, et d'écrire vos premiers documents avec LaTeX, revenons sur ce qui fait la force de ce dernier !
+        </p>
         <h3>2. MikTeX</h3>
         <h4>2.A. C'est quoi MikTeX ?</h4>
         <p>Pour que LaTeX fonctionne correctement sur votre machine, il faut y installer une librairie (comme n'importe quel autre langage). Avant d'élaborer sur la librairie MikTeX, je vais aborder le cas des machines GNU/Linux, en effet, vous n'avez pas besoin de MikTeX pour que LaTeX y fonctionne, juste quelques commandes dans le terminal.</p>
+        <h4>2.B. Installation</h4>
+        <ol type="I" class="code">
+            <li>Allez sur le site : <a href="https://www.latex-project.org/get">latex-project.org</a></li>
+            <li>Descendez un peu la page jusqu'au niveau où vous trouverez les différents OS</li>
+            <li>Sous Windows, cliquez sur le texte en bleu "MikTeX"</li>
+            <li>Vous arriverez sur la page d'accueil de la distribution MikTeX</li>
+            <li>En haut de cette page, cliquez sur "download"</li>
+            <li>Vous aurez le choix entre les différents OS, choisissez dans ce cas présent Windows</li>
+            <li>Cliquez sur download, et puis, cela se passe comme une installation de logiciel</li>
+        </ol>
         <h3>3. TexMaker</h3>
+        <h4>3.A. Pourquoi TeXmaker ?</h4>
+        <p>
+            TeX a beau être un langage de programmation, il nous faut pour cela un IDE (Integrated Development Environment) ou en français EDI (Environnement de Développement Intégré). Mon choix s'est porté sur TeXmaker, pourquoi ?
+        </p>
+        <p>
+            Tout simplement car c'est la première option qui s'est porté à moi en proposant une interface en français (mais c'est pas le point important, mais je le dis quand même), un mode sombre (OUI !) mais surtout, une visionneuse PDF intégrée, permettant de suivre la mise en forme de son document à chaque compilation de code.
+        </p>
+        <p>
+            J'ai écris plus haut que le but du WYSIWYM est que l'auteur se focalise sur le contenu de son document/présentation, et là, je vous sort un logiciel proposant de voir son texte évoluer au fur et à mesure que l'on travaille sur le code.
+        </p>
+        <p>
+            Et bien, ce choix s'explique tout simplement : cela me rassurais, quand je commençais LaTeX pour ne pas être perdu.
+        </p>
+        <p>
+            TeXmaker est un logiciel libre cross-platform (Linux, Windows, MacOsX) d'édition LaTeX depuis 2003. Libre car il est distribué sous la licence GPL License. Il est disponible sur le site suivant : <a href="https://www.xm1math.net/texmaker/">xm1math.net</a>.
+        </p>
+        <h4>3.B. Installation</h4>
+        <h5>3.B.1 Installation sous GNU/Linux</h5>
+        <p>
+            Je commence par Linux, car je travaille et je code en LaTeX sur ma machine Linux, précisément, Linux Mint. Du coup, l'installation se fera non pas par le site internet, mais par le terminal !
+        </p>
+        <ol type="I" class="code">
+            <li>Ouvrir le terminal, avec la combinaison de touche : <b>CTRL + ALT + T</b></li>
+            <li>Entrez, après <b>NOM@NOM-MACHINE :~$</b> la commande : <i>SUDO APT-GET INSTALL TEXMAKER</i></li>
+            <li>Suivre ce que le terminal vous dis</li>
+            <li>Voilà, mais ne fermez pas tout de suite le terminal</li>
+            <li>Entrez la commande suivante : <i>SUDO APT-GET INSTALL TEXLIVE-LANG-FRENCH</i></li>
+            <li>Voilà, c'est prêt ! - C'est puissant le terminal sur Linux :)</li>
+        </ol>
+        <h5>3.B.2 Installer sur Windows</h5>
+        <p>
+            Avant d'installer Texmaker, il nous faut d'abord installer une librairie LaTeX, chose déjà faite avec MikTeX !
+        </p>
+        <h4>3.C. Premiers pas</h4>
+        <p>
+            Voilà, Texmaker est installé sur votre machine. Nous allons à présent configurer ce dernier pour que, peu importe votre OS, votre expérience soit la plus agréable possible.
+        </p>
         <h3>4. Quelques rudiments de codes</h3>
+        <h4>4.A. Hello World !</h4>
+        <p>
+            Voilà, tout est prêt, on peut commencer. Comme l'indique le paragraphe, nous allons donc faire le premier document selon la tradition des programmeurs pour tout premier code dans un langage, le célébrissime "Hello World !".
+        </p>
+        <p>
+            Le code LaTeX pour "Hello World !" se présente comme suit :
+        </p>
+        <div class="code">
+            <pre><code>
+                \documentclass{article}
+
+                \begin{equation}
+                Hello World !
+                \end{equation}
+            </code></pre>
+        </div>
+        <p>
+            Lorsque que vous le compilé, vous obtiendrais un fichier PDF d'une page (format A4 ou Letter) où vous verrez : Hello World ! ; avec le numéro de la page en bas, ajouté automatiquement par la classe du document, ici article.
+        </p>
+        <p>
+            Voilà, vous venez de faire votre premier document en LaTeX, et à partir de cela, nous pouvons fixer un point essentiel à retenir : votre document finale (ce que vous obtenez après la compilation) est compris entre :
+        </p>
+        <div class="code">
+            <pre><code>
+                \begin{document}
+
+                \end{document}
+            </code></pre>
+        </div>
+        <h4>4.B. Avant la rédaction</h4>
+        <p>
+            Cependant, cela n'est pas suffisant, en effet, avant d'aller dans le corps du document, il nous faut configurer ce dernier (équivalent à importer des librairies dans python).
+        </p>
+        <h4>4.C. Le corps du document</h4>
         <h3>5. Les bases de la mise en pages sur LaTeX</h3>
-        <h3>6. Les Mathématiques</h3>
+        <h4>5.A. Les classes de documents</h4>
+        <p>
+            LaTeX traite plusieurs classes de document. Au début, on peut être perdu et confus, mais je vais - pour toi public - expliquer leurs atouts et différences. <i>Je précise cependant que nous utiliserons quasi-uniquement les classes book et article. Un chapitre sera dédié à beamer pour faire des présentation à la fin.</i>
+        </p>
+        <h5>5.A.1. Classe Book (Livre) & Report (rapport)</h5>
+        <p>
+            Comme son nom l'indique, cette classe est prévu pour la production d'un livre, avec des spécificités associées, telles que :
+            <ol type="1">
+                <li>une page de titre suivit d'une page blanche ;</li>
+                <li>il se divise en parties, chapitres, sections, sous-sections, sous-sous-sections, paragraphes et sous-paragraphes ;</li>
+                <li>les parties et chapitres commenceront toujours sur une page impaire (dite "belle page") ;</li>
+            </ol>
+            Penchons nous sur la présentation d'un code pour un livre, car c'est la base la plus complète pour un document.
+        </p>
+        <h5>5.A.2. Classe Article</h5>
+        <p>
+            C'est celle que nous venons d'utiliser dans notre premier code. Comparée à la classe <i>book</i>, vous avons :
+            <ol type="i">
+                <li>le titre est sur la même page que le texte ;</li>
+                <li>la division <b><i>chapitre</i></b> n'est pas utilisable</li>
+            </ol>
+        </p>
+        <h5>5.A.3. Classe Beamer</h5>
+        <p>
+            La classe <i>beamer</i> est le "PowerPoint" pour LaTeX. Pour faire un diaporama / présentation avec LaTeX, cette classe est le meilleur choix, car elle est la plus évoluée parmi les classes équivalentes. Avec une documentation extrêmement riche sur internet, <i>beamer</i> vient également avec deux sous-packages : <b>pgf</b> et <b>xcolor</b>, qui permettent, respectivement, d'inclure des images et de définir des couleurs dans le document. <br> Il y a un chapitre dédié pour produire des présentation plus loin dans ce "cours".
+        </p>
+        <h5>5.A.4. Classe Lettre</h5>
+        <p>
+            Cette classe, dérivée de la classe <i>letter</i> permet de réaliser une lettre selon les règles françaises de typographie. Pour vous illustrer ce que cette classe permet, je vous mets ici le code d'exemple disponible sur wikibooks, et que je vous invite à copier-coller dans TeXmaker pour voir le résultat.
+        </p>
+        <div class="code">
+            <pre><code>
+                \documentclass[12pt]{lettre}
+
+                \usepackage[utf8]{inputenc}
+                \usepackage[T1]{fontenc}
+                \usepackage{lmodern}
+                \usepackage{eurosym}
+                \usepackage[french]{babel}
+                \usepackage{numprint}
+
+                \begin{document}
+
+                \begin{letter}{Service des réclamations}
+                \name{Jean Râleur}
+                \address{Jean Râleur \\ 4, rue du Bac à sable \\ 80886 Sassone-le-Creux}
+                \lieu{Sassone-le-Creux}
+                \telephone{01 02 03 04 05}
+                \email{jean.raleur@fai.fr}
+                \nofax
+
+                \def\concname{Objet :~} % On définit ici la commande 'objet'
+                \conc{rétractation}
+                \opening{Madame, Monsieur,}
+
+                Vous m'avez démarché la semaine dernière pour me proposer l'édition de luxe de l'encyclopédie Wikipédia, pour la somme de \numprint{5000}~\euro.
+                Conformément à la loi m'accordant un délai de rétractation de 7~jours, je renonce à mon achat et demande le remboursement de la somme versée.
+
+                \closing{Je vous prie d'agréer, Madame, Monsieur, mes salutations distinguées.}
+
+                \end{letter}
+
+                \end{document}
+            </code></pre>
+        </div>
+        <h5>5.A.6. Classe Memoir (mémoire)</h5>
+        <p>
+            Cette classe permet de rédiger un mémoire, notamment pour des fins d'études par exemple. Ce n'est pas le centre de ce "cours" mais si vous êtes plutôt bons en anglais, je vous renvois vers une documentation très complète sur internet : <a href="https://texdoc.org/serve/memman.pdf/o">ICI</a>.
+        </p>
+        <h5>5.A.7. Classe Slides (diaporama)</h5>
+        <p>
+            Cette classe est historique, et n'ai plus recommandée pour faire des présentations, l'utilisation de <b>beamer</b> sera priviliégée.
+        </p>
+        <h4>5.B. Faire un titre</h4>
+        <h4>5.C. Une table des matières pour s'y retrouver</h4>
+        <h3>6. Les Mathématiques et les Sciences dures</h3>
+        <p>
+            Nous voilà à présent dans le coeur de LaTeX, les mathématiques. Dans ce chapitre, nous allons voir une très grande partie de ce que peut offrir LaTeX aux gens de Science que nous sommes !
+        </p>
+        <h4>6.A. Les opérations basiques</h4>
+        <h5>6.A.1. L'addition, s'il vous plait !</h5>
+        <p>
+            Je vais commencer tout doucement. Faisons une addition triviale : 2 + 2 = 4. La structure du code pour une équation est relativement très proche de celle d'un document, en effet, dans le code, on commence par la commande \begin{equation}, puis on écrit notre équation, et on finit par la commande \end{equation}.
+        </p>
+        <div class="code">
+            <pre><code>
+                \begin{equation}
+                2 + 2 = 4
+                \end{equation}
+            </code></pre>
+        </div>
+        <p>
+            Et donc, en compilant votre code, vous obtiendrais donc :
+        </p>
+        <h5>6.A.2. Sans la note</h5>
+        <p>
+            Alors, oui, dans LaTeX, toute équation est systématiquement centrée sur la page. De plus, on peut voir que l'équation est numérotée. Comment faire pour enveler cette numérotation automatique ? Et bien, comme je l'avais dit dans la partie sur la hiérarchisation d'un document, on utilise l'astérisque comme suit :
+        </p>
+        <div class="code">
+            <pre><code>
+                ...
+                \begin{equation*}
+                2 + 2 = 4
+                \end{equation*}
+                ...
+            </code></pre>
+        </div>
+        <p>
+            Et après la compilation, nous avons :
+        </p>
+        <h5>6.A.3. Des chiffres, mais aussi des lettres</h5>
+        <p>
+            Cela fonctionne aussi pour le calcul littéral :
+        </p>
+        <div class="code">
+            <pre><code>
+                \begin{equation*}
+                a + b  = c
+                \end{equation*}
+            </code></pre>
+        </div>
+        <p>
+            Mais il n'y a pas que les additions dans la vie ! Je vais donc ici juste récapituler les commandes basiques et usuelles de mathématiques sur LaTeX.
+        </p>
+        <h5>6.A.4. La fraction</h5>
+        <p>
+            Cependant, il nous reste quelques équations à aborder. En effet, parmi les équations et calculs usuels, il y en a plusieurs qui demande un peu de "graphisme". C'est le cas de la fraction.
+        </p>
+        <div class="code">
+            <pre><code>
+                ...
+                \begin{equation*}
+                \frac{1}{2}
+                \end{equation*}
+                ...
+            </code></pre>
+        </div>
+        <p>
+            Après la compilation, cela nous donnes :
+        </p>
+        <p>
+            La commande pour la fraction est relativement intuitive. En effet, elle doit être comprise comme suit :
+        </p>
+        <div class="code">
+            <pre><code>
+                \frac{numérateur}{dénominateur}
+            </code></pre>
+        </div>
+        <h5>6.A.5. Indices et exposant</h5>
+        <h5>6.A.6. La racine carré et plus</h5>
+        <p>
+            Là aussi, LaTeX centre l'équation. Mais maintenant, admettons que j'ai une équation un peu plus longue que la précédente ou bien j'inverse l'écriture, autrement dit, je fais :
+        </p>
+        <h4>6.B. "Align*" ou l'art des démonstrations</h4>
+        <h4>6.C. Les opérations complexes</h4>
+        <h4>6.D. Faire de la physique</h4>
+        <h4>6.E. Faire de la chimie</h4>
+        <h4>6.F. Dessiner des circuits électroniques</h4>
+        <h4>6.G. Insérer du code dans votre papier</h4>
         <h3>7. Des images</h3>
         <h3>8. Des tableaux</h3>
+        <h4>8.A. Façon brut</h4>
+        <h4>8.B. Avec un assistant bien utile</h4>
+        <h4>8.C. Tableaux avancés</h4>
         <hr style="color: white;">
         <footer>
             <div>

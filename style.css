@@ -17,6 +17,13 @@ Ceci est pour faire un commentaire
     background-color: rgb(0, 0, 0);
     font-family: 'CORDATA', Courier, monospace;
     color: white;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.teletext
+{
+    font-family: 'IBM', Courier, monospace;
 }
 
 .date{
@@ -51,4 +58,27 @@ Ceci est pour faire un commentaire
 .updatelog li{
     list-style-type: none;
     min-height: 25px;
+}
+
+.center
+{
+    margin:auto;
+}
+
+.left
+{
+    margin-left: 30%;
+}
+
+.right
+{
+    margin-right: auto;
+}
+
+#page {float: left; margin-right: 90px;}
+#ref {float: left; margin-right: 90px;}
+#current_date {float:left;}
+
+.code{
+    color: yellow;
 }
